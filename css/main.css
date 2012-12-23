@@ -1,0 +1,65 @@
+/* reset to defualts */
+*
+{
+	margin:0;
+	padding:0;
+}
+
+/* top of site */
+div.sitewrapper
+{
+	width: 800px;
+	margin:0 auto;
+}
+
+/* user input area */
+div.numbersearch
+{
+	position:relative;
+	margin-left: auto;
+    margin-right: auto;
+	padding: 20px 20px;
+	border:2px solid #A1A1A1;
+	width: 503px;
+	top: 100px;
+	background:#EEEEFF;
+	border-radius:15px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+/* area where the barcode is displayed */
+div.barcoderesult
+{
+	position:relative;
+	top: 300px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* style of inputs so they are next to each other */
+div.input
+{
+	display: inline-block;
+	padding: 5px 5px;
+}
+
+#barcodewrapper
+{
+	/*position:relative;*/
+	margin-left: auto;
+    margin-right: auto;
+}
+
+div.barcoderesult
+{
+	position:relative;
+	margin-left: auto;
+    margin-right: auto;
+	padding: 20px 20px;
+	border:2px solid #A1A1A1;
+	width: 503px;
+	top: 200px;
+	background:#EEEEFF;
+	border-radius:15px;
+	box-shadow: 5px 5px 5px #888888;
+}

@@ -1,0 +1,105 @@
+<html>
+<head>
+	<title>Your Healthy Pet Points Card Look-Up</title>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="js/jquery.barcode.0.3.js"></script>
+	<script src="js/decode.js"></script>
+	
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+
+	<script>
+	
+		function initpage()
+		{
+			$("#barcoderesult").hide();
+			
+			$("#phonenumber").keyup(function(event){
+				if(event.keyCode == 13){
+					$("#searchbutton").click();
+				}
+			});
+		}
+	
+		$(document).ready(function(){
+			generatebarcode = function(){
+				$('.barcode').barcode({code:'code39'});
+			};
+			}
+		);
+		
+		function performSearch()
+		{
+		
+			// get the phone number from the page
+			var phonenumber = document.getElementById('phonenumber').value;
+			var postData = {};
+			postData.number = phonenumber;
+		
+			// get json from api call
+			$.getJSON("./decodeapi.php",
+				postData,
+				function(data) {
+				
+					// decode json data
+					var name = data.name;
+					var phonenumber = data.phonenumber;
+					var barcodenumber = data.barcodenumber;
+				
+					// display name
+					var html = "<h3>" + name + "<br></h3>";
+					$("#name").html(html);
+				
+					// set the text to the barcodenumber
+					$('#barcode').html = barcodenumber;
+				
+					// generate the barcode based on the input number
+					generatebarcode();
+
+					$("#barcoderesult").show();
+				
+				}
+			);
+		
+		}
+	
+	</script>
+
+</head>
+<body onload="initpage()">
+
+	<div id="sitewrapper" class="sitewrapper">
+	
+		<div id="insidewrapper" class="insidewrapper">
+		
+			<div id="numbersearch" class="numbersearch">
+			
+				<div id="enterphonenumber" class="input">
+					Enter Phone Number:
+				</div>
+				<div id="phonenumberfield" class="input">
+					<input type="text" id="phonenumber" name="phonenumber">
+				</div>
+				<div id="seachbuttonfield" class="input">
+					<button id="searchbutton" onclick="performSearch()">Search</button>
+				</div>
+			</div>
+		
+			<div id="barcoderesult" class="barcoderesult">
+				
+				<div id="name" class="input">
+				</div>
+				
+				<div id="barcodewrapper">
+					<div id="barcode" class="barcode" style="width:503px;height:50px;border:1px solid red;">
+					</div>
+				</div>
+
+			</div>
+		
+		</div>
+	
+	</div>
+
+</body>
+</html>
