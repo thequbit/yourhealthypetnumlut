@@ -63,3 +63,24 @@ div.barcoderesult
 	border-radius:15px;
 	box-shadow: 5px 5px 5px #888888;
 }
+
+/* user input stuff */
+
+div.inputbox
+{
+	position:relative;
+	margin-left: auto;
+    margin-right: auto;
+	padding: 20px 20px;
+	border:2px solid #A1A1A1;
+	width: 300px;
+	top: 100px;
+	background:#EEEEFF;
+	border-radius:15px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+div.userinput
+{
+	padding: 2px 2px;
+}
